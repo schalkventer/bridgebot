@@ -16,9 +16,9 @@ const calcIfOneDayAway = ({ local_date }) => {
 
 
 const sendMessage = ({ local_time, link, name }) => {
-  const text = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *in 4 days at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
+  const message = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *in 4 days at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
 
-  return send({ text });
+  return send(message);
 }
 
 
