@@ -4,8 +4,7 @@ const { IncomingWebhook } = require('@slack/client');
 
 const MEETUP_URL = 'http://api.meetup.com/Codebridge/events';
 const { API_URL } = process.env;
-console.log(API_URL)
-// const { send } = new IncomingWebhook(API_URL);
+const bridgeBotHook = new IncomingWebhook(API_URL);
 
 
 const calcIfOneDayAway = ({ local_date }) => {
@@ -20,7 +19,7 @@ const calcIfOneDayAway = ({ local_date }) => {
 const sendMessage = ({ local_time, link, name }) => {
   const message = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *in 4 days at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
 
-  return console.log(message, responseHandler);
+  return bridgeBotHook.send(message, responseHandler);
 }
 
 
