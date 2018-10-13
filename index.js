@@ -18,12 +18,11 @@ const calcIfOneDayAway = ({ local_date }) => {
 const sendMessage = ({ local_time, link, name }) => {
   const message = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *in 4 days at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
 
-  return send(message);
+  return send(message, responseHandler);
 }
 
 
 const handleApiResponse = (response) => {
-
   const oneDayAwayEvents = response.filter(calcIfOneDayAway);
   return oneDayAwayEvents.forEach(sendMessage);
 }
@@ -40,4 +39,4 @@ const responseHandler = (error, response) => {
 }
 
 
-request(MEETUP_URL, responseHandler);
+request(MEETUP_URL, handleApiResponse);
