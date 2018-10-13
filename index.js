@@ -24,7 +24,7 @@ const sendMessage = ({ local_time, link, name }) => {
 
 const handleApiResponse = (response) => {
   const eventsArray = JSON.parse(response);
-  const oneDayAwayEvents = response.filter(calcIfOneDayAway);
+  const oneDayAwayEvents = eventsArray.filter(calcIfOneDayAway);
   return oneDayAwayEvents.forEach(sendMessage);
 }
 
