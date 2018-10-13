@@ -29,11 +29,6 @@ const handleApiResponse = (response) => {
 }
 
 
-fetch().then((response) => {
-  response.json().then(handleApiResponse)
-});
-
-
 const responseHandler = (error, response) => {
   const { text } = response;
 
