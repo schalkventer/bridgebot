@@ -12,12 +12,12 @@ const calcIfOneDayAway = ({ local_date }) => {
   const eventDate = moment(local_date);
   const daysUntilEvent = eventDate.diff(todayDate, 'days') 
   
-  return daysUntilEvent === 4;
+  return daysUntilEvent === 1;
 }
 
 
 const sendMessage = ({ local_time, link, name }) => {
-  const message = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *in 4 days at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
+  const message = `Morning humans! This is a friendly robo-reminder of the following Codebridge Newlands event happening *tomorrow at ${local_time}*: <${link}|${name}>. Hope to see you there! 👪`;
 
   return bridgeBotHook.send(message, responseHandler);
 }
