@@ -1,7 +1,7 @@
 const request = require('request')
 const { IncomingWebhook } = require('@slack/client');
 
-const MEETUP_URL = 'https://api.meetup.com/Codebridge/events';
+const MEETUP_URL = 'http://api.meetup.com/Codebridge/events';
 const { API_URL } = process.env;
 const { send } = new IncomingWebhook(API_URL);
 
