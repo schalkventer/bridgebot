@@ -1,4 +1,5 @@
 const request = require('request')
+const moment = require('moment');
 const { IncomingWebhook } = require('@slack/client');
 
 const MEETUP_URL = 'http://api.meetup.com/Codebridge/events';
@@ -22,8 +23,14 @@ const sendMessage = ({ local_time, link, name }) => {
 }
 
 
-const handleApiResponse = (response) => {
-  const eventsArray = JSON.parse(response);
+const handleApiResponse = (error, response) => {
+  if (error) {
+    return null;
+  }
+
+  const { body } = response;
+  eventsArray = JSON.parse(body);
+  
   const oneDayAwayEvents = eventsArray.filter(calcIfOneDayAway);
   return oneDayAwayEvents.forEach(sendMessage);
 }
@@ -40,4 +47,4 @@ const responseHandler = (error, response) => {
 }
 
 
-request(MEETUP_URL, handleApiResponse);
+request(MEETUP_URL, null, handleApiResponse);
