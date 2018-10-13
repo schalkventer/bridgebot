@@ -4,7 +4,8 @@ const { IncomingWebhook } = require('@slack/client');
 
 const MEETUP_URL = 'http://api.meetup.com/Codebridge/events';
 const { API_URL } = process.env;
-const { send } = new IncomingWebhook(API_URL);
+console.log(API_URL)
+// const { send } = new IncomingWebhook(API_URL);
 
 
 const calcIfOneDayAway = ({ local_date }) => {
