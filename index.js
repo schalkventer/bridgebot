@@ -12,7 +12,7 @@ const calcIfOneDayAway = ({ local_date }) => {
   const eventDate = moment(local_date);
   const daysUntilEvent = eventDate.diff(todayDate, 'days') 
   
-  return daysUntilEvent === 1;
+  return daysUntilEvent === 0;
 }
 
 
